@@ -4,6 +4,13 @@ import numpy as np
 import streamlit as st
 import base64
 
+st.set_page_config(
+    page_title="Tilgungsplaner",
+    page_icon="",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
 @st.cache
 def darlehen(S, Date, idach, tilg, pt = True, Su = 0):
     # S: Kreditsumme
