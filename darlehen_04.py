@@ -82,7 +82,7 @@ def darlehen(S, Date, idach, tilg, pt = True, Su = 0):
 
 Eine Baufinanzierung wird oft unübersichtlich, besonders wenn die Zinsbindung ausläuft oder
 die Tilgung geändert wird. Mit diesem Tilgungsrechner lassen sich auch komplizierte
-Annuitätendarlehn akkurat berechnen und auswerten - damit beim Bau keine finanziellen
+Annuitätendarlehen akkurat berechnen und auswerten - damit beim Bau keine finanziellen
 Überraschungen entstehen.
 """
 
