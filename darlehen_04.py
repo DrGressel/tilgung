@@ -78,7 +78,7 @@ def darlehen(S, Date, idach, tilg, pt = True, Su = 0):
 
 """
 # Tilgungsrechner
-(c) *Dr. Daniel Gropper | ver 12.07.2021 | Kein Gewähr auf die Richtigkeit der Berechnungen*
+(c) *Dr. Gressel | ver 12.07.2021 | Kein Gewähr auf die Richtigkeit der Berechnungen*
 
 Eine Baufinanzierung wird oft unübersichtlich, besonders wenn die Zinsbindung ausläuft oder
 die Tilgung geändert wird. Mit diesem Tilgungsrechner lassen sich auch komplizierte
