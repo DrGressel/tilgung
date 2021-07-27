@@ -261,3 +261,4 @@ with right.beta_expander('Tilgungsplan'):
     st.markdown(linko, unsafe_allow_html=True)
 
 del TP_copy
+del TP
