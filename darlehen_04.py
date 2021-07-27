@@ -11,8 +11,8 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-#@st.cache(allow_output_mutation = True)
-@st.cache
+@st.cache(allow_output_mutation = True)
+#@st.cache
 def darlehen(S, Date, idach, tilg, pt = True, Su = 0):
     # S: Kreditsumme
     # idach: Normalzins in % nach Def. der Bank
@@ -261,4 +261,3 @@ with right.beta_expander('Tilgungsplan'):
     st.markdown(linko, unsafe_allow_html=True)
 
 del TP_copy
-del TP
