@@ -70,9 +70,6 @@ def darlehen(S, Date, idach, tilg, pt = True, Su = 0):
             'Laufzeit': n,
            }
     kredit.index = pd.date_range(start = Date-pd.DateOffset(0), end = Date+pd.DateOffset(months = len(kredit)-1), freq = 'MS', name = 'Datum')
-    kredit['Gesamtkosten'] = kredit['Monatliche Rate'].cumsum()
-    kredit['Getilgt'] = kredit['Tilgung'].cumsum()
-    kredit['Bezahlte Zinsen'] = kredit['Zinsanteil'].cumsum()
 
     return kredit, meta
 
@@ -232,6 +229,10 @@ if Tilgungsanpassung_2 == True and Tilgungsanpassung_1 == True:
     TP2 = TP2.drop(index = pd.date_range(start = Tilgungsanpassung_2_date, end = TP2.index[-1], freq = 'MS'))
     TP = pd.concat([TP1, TP2, TP3], axis = 0)
 
+TP['Gesamtkosten'] = TP['Monatliche Rate'].cumsum()
+TP['Getilgt'] = TP['Tilgung'].cumsum()
+TP['Bezahlte Zinsen'] = TP['Zinsanteil'].cumsum()
+    
 if str(Zinsbindung_date) <= str(TP1.index[-1]):
     st.write('**Laufzeit **', round(np.floor(len(TP)/12)), 'Jahre und', round((len(TP)/12-np.floor(len(TP)/12))*12),
     'Monate | **Gesamtkosten **', round(TP['Gesamtkosten'].iloc[-1],2), 'EUR | **Bezahlte Zinsen **',
