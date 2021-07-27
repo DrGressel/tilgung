@@ -69,7 +69,7 @@ def darlehen(S, Date, idach, tilg, pt = True, Su = 0):
             'Anfängliche Tilgung': tdach,
             'Laufzeit': n,
            }
-    kredit.index = pd.date_range(start = Date-pd.DateOffset(0), end = Date+pd.DateOffset(months = len(kredit)-1), freq = 'MS')
+    kredit.index = pd.date_range(start = Date-pd.DateOffset(0), end = Date+pd.DateOffset(months = len(kredit)-1), freq = 'MS', name = 'Datum')
     kredit['Gesamtkosten'] = kredit['Monatliche Rate'].cumsum()
     kredit['Getilgt'] = kredit['Tilgung'].cumsum()
     kredit['Bezahlte Zinsen'] = kredit['Zinsanteil'].cumsum()
@@ -252,6 +252,7 @@ TP_copy = TP.copy()
 
 with right.beta_expander('Tilgungsplan'):
     TP_copy.index = TP_copy.index.strftime('%d.%m.%Y')
+    TP_copy.index.rename('Datum')
     st.dataframe(TP_copy, height = 500)
     csv = TP_copy.to_csv(index=True)
     b64 = base64.b64encode(csv.encode()).decode()
